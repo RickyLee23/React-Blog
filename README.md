@@ -1,6 +1,7 @@
 # React-Blog-Version1.0
 
 [DEMO 連結](https://rickylee23.github.io/React-Blog/)
+<<<<<<< HEAD
 
 基本功能：
 
@@ -24,3 +25,5 @@
 - 串接 API，取得部落格資訊，包含文章標題、發表時間等資訊
 - 使用 styled component 管理 css 外觀
 - 使用 function component 區分各頁面為不同模組
+=======
+>>>>>>> 6d598e9e2b7b59b74865ed274f381ca7e2f73ea4
