@@ -27,62 +27,63 @@ const PostContainer = styled.div`
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  width: 700px;
   margin: 10px auto;
-  cursor: pointer;
   border-radius: 10px;
-  :hover {
-    background: white;
-    box-shadow: 5px 10px #2db7eb;
-    transition-duration: 0.5s;
-  }
-  :active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
 `;
 
 const PostTitle = styled(Link)`
-  font-size: 24px;
-  width: 400px;
-  text-align: left;
+  font-size: 90px;
   text-decoration: none;
   color: black;
+  text-decoration: underline;
+  :hover { text-decoration-color: #f4bf2c; }
 `;
 
 const PostDate = styled.div`
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom:20px;
 `;
 const PageSign = styled.div`
   margin: 20px 20px;
   display: inline-block;
   padding: 10px;
+  color:#aaaaaa;
 `;
-const Button = styled.button`
+const Button = styled.span`
   border: 0;
   background: none;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 5px;
   margin: 10px;
-  border-radius: 5px;
-  outline: none;
-  :active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+  font-size: 11px;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  :hover {
+    color:black;
   }
 `;
 const PageFunction = styled.div`
   margin-top: 50px;
 `;
 
+const PostThumbnail = styled.div`
+  width:60%;
+  border:2px solid red;
+  height:80vh;
+`
 
 
 function Post({ post }) {
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  const editTime = new Date(post.createdAt)
   return (
     <PostContainer>
-      <PostTitle to={`/post/${post.id}`}>{post.title}</PostTitle>
-      <PostDate>{new Date(post.createdAt).toLocaleString()}</PostDate>
+      <PostThumbnail/>
+      <div className="post__desc">
+        <PostDate>{months[editTime.getMonth()]}. {editTime.getDate()}, {editTime.getFullYear()}</PostDate>
+        <PostTitle to={`/post/${post.id}`}>{post.title}</PostTitle>
+      </div>
     </PostContainer>
   );
 }
@@ -161,13 +162,13 @@ export default function HomePage() {
         <Post key={post.id} post={post} />
       ))}
       <PageFunction>
-        <Button onClick={handleFirstPage}>第一頁</Button>
-        <Button onClick={handlePreviousPage}>上一頁</Button>
+        <Button onClick={handleFirstPage}>First</Button>
+        <Button onClick={handlePreviousPage}>Previous</Button>
         <PageSign>
           {page} / {totalPage}
         </PageSign>
-        <Button onClick={handleNextPage}>下一頁</Button>
-        <Button onClick={handleLastPage}>最後一頁</Button>
+        <Button onClick={handleNextPage}>Next</Button>
+        <Button onClick={handleLastPage}>Last</Button>
       </PageFunction>
     </Root>
   );
