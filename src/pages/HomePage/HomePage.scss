@@ -1,0 +1,51 @@
+.simpleIntroduce {
+    &__textContainer {
+        position:absolute;
+        font-weight: 500;
+        color: #111111;
+        font-size: 12px;
+        letter-spacing: 3px;
+        top: 16%;
+        left: 35%;
+    }
+    &__container {
+        height:500px;
+        background-color:#f8f8f8;
+    }
+    &__content-major {
+        font-weight: 800;
+        color: #444444;
+        font-size: 14vw;
+        line-height: 1.2;
+    }
+    &__content-sub {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+    }
+    &__content {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #111111;
+        font-size: 12px;
+        display: inline-block;
+        letter-spacing: 3px;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 0;
+        margin-left: -70%;
+    }
+    &__text {
+        position: relative;
+        left: 40%;
+        top: 20%;
+        text-align: left;
+        font-size: 30px;
+        letter-spacing: 1px;
+        font-weight: 200;
+        margin-top: 20px;
+        color: #919191;
+        line-height: 1.3;
+    }
+    
+}

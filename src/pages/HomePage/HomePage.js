@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { getPosts } from "../../WebAPI";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import "./HomePage.scss"
 
 const Root = styled.div`
   text-align: center;
-  margin-top: 80px;
   text-decoration: none;
 `;
 const Loading = styled.div`
@@ -75,6 +75,8 @@ const Button = styled.button`
 const PageFunction = styled.div`
   margin-top: 50px;
 `;
+
+
 
 function Post({ post }) {
   return (
@@ -146,6 +148,15 @@ export default function HomePage() {
   return (
     <Root>
       {isLoading && <Loading>Loading....</Loading>}
+      <div className="simpleIntroduce__container">
+        <div className="simpleIntroduce__textContainer">
+          <h1 className="simpleIntroduce__content">A personal blog</h1>
+          <h1 className="simpleIntroduce__content-major">Ri
+            <span className="simpleIntroduce__content-sub">ck</span>
+            y's</h1>
+          <h3 className="simpleIntroduce__text">I am a frontend developer <br/> Based in Taipei</h3>
+        </div>
+      </div>
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}

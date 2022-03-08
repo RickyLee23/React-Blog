@@ -5,36 +5,35 @@ import { AuthContext } from "../../contexts";
 import { setAuthToken } from "../../utils";
 
 const HeaderContainer = styled.div`
-  height: 70px;
-  width: 80%;
+  position: fixed;
+  height: 10vh;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 10px;
-  right: 10%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background: #f0e862;
-  box-sizing: border-box;
-  box-shadow: 5px 10px #888888;
+  background-color: #fff;
+  z-index:1;
 `;
 const Brand = styled.span`
   font-size: 25px;
   margin-left: 20px;
   margin-right: 40px;
+  font-weight: 800;
+  text-transform: uppercase;
 `;
 const Block = styled(Link)`
   margin: 0px 20px;
   text-decoration: none;
   color: black;
   cursor: pointer;
+  font-size: 11px;  
+  color: #aaaaaa;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   ${(props) =>
     props.$active &&
     `
-    border-top:2px solid black;
-    border-bottom:2px solid black;
-    padding-bottom:2px;
-    font-size:20px;
+    color:black;
     `}
 `;
 
@@ -61,29 +60,33 @@ export default function Header() {
   return (
     <HeaderContainer>
       <NavSection1>
-        <Brand>你的第一個部落格</Brand>
-        <Block to="/" $active={location.pathname === "/"}>
-          首頁
-        </Block>
-        <Block to="/aboutMe" $active={location.pathname === "/aboutMe"}>
-          關於我
-        </Block>
-        {user && (
-          <Block to="/newPost" $active={location.pathname === "/newPost"}>
-            發布文章
-          </Block>
-        )}
+        <Brand>Your first blog.</Brand>
       </NavSection1>
       <NavSection2>
-        <Block to="/register" $active={location.pathname === "/register"}>
-          註冊
-        </Block>
-        {!user && (
-          <Block to="/login" $active={location.pathname === "/login"}>
-            登入
-          </Block>
-        )}
-        {user && <Block onClick={handleLogout}>登出</Block>}
+      <Block to="/" $active={location.pathname === "/"}>
+        Home
+      </Block>
+      <Block to="/aboutMe" $active={location.pathname === "/aboutMe"}>
+        About
+      </Block>
+      {user && (
+      <Block to="/newPost" $active={location.pathname === "/newPost"}>
+        Create new post
+      </Block>
+      )}
+      <Block to="/register" $active={location.pathname === "/register"}>
+        Register
+      </Block>
+      {!user && (
+      <Block to="/login" $active={location.pathname === "/login"}>
+        Login
+      </Block>
+      )}
+      {user && (
+      <Block to="/login" onClick={handleLogout}>
+        Logout
+      </Block>
+      )}
       </NavSection2>
     </HeaderContainer>
   );

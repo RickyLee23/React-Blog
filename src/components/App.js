@@ -11,18 +11,18 @@ import NewPostPage from "../pages/NewPostPage";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AuthContext } from "../contexts";
+import "../App.css";
 
 const Root = styled.div`
-  padding-top: 64px;
-  background: rgba(245, 222, 179, 0.3);
 `;
 const SpaceDistrubution = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width:100%;
 `;
 const Space = styled.div`
-  min-height: 650px;
+  min-height:80vh;
 `;
 
 function App() {
