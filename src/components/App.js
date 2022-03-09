@@ -22,7 +22,7 @@ const SpaceDistrubution = styled.div`
   width:100%;
 `;
 const Space = styled.div`
-  min-height:80vh;
+  min-height:90vh;
 `;
 
 function App() {

@@ -73,6 +73,20 @@ const PostThumbnail = styled.div`
   height:80vh;
 `
 
+function SelfIntroduceBlock() {
+  return (
+    <div className="simpleIntroduce__container">
+      <div className="simpleIntroduce__textContainer">
+        <h1 className="simpleIntroduce__content">A personal blog</h1>
+        <h1 className="simpleIntroduce__content-major">Ri
+          <span className="simpleIntroduce__content-sub">ck</span>
+          y's</h1>
+        <h3 className="simpleIntroduce__text">I am a frontend developer <br/> Based in Taipei</h3>
+      </div>
+    </div>
+  )
+}
+
 
 function Post({ post }) {
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
@@ -149,15 +163,7 @@ export default function HomePage() {
   return (
     <Root>
       {isLoading && <Loading>Loading....</Loading>}
-      <div className="simpleIntroduce__container">
-        <div className="simpleIntroduce__textContainer">
-          <h1 className="simpleIntroduce__content">A personal blog</h1>
-          <h1 className="simpleIntroduce__content-major">Ri
-            <span className="simpleIntroduce__content-sub">ck</span>
-            y's</h1>
-          <h3 className="simpleIntroduce__text">I am a frontend developer <br/> Based in Taipei</h3>
-        </div>
-      </div>
+      <SelfIntroduceBlock/>
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}

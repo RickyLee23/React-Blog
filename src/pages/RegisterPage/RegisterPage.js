@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { register } from "../../WebAPI";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import "./Register.scss"
 
 const ErrorMessage = styled.div`
   color: red;
+  margin-top:50px;
+  text-transform:capitalize;
 `;
 const RegisterPageWrapper = styled.div`
-  text-align: center;
-  margin: 100px;
+  text-align: left;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  max-width:50vw;
+  margin-right:auto;
+  margin-left:auto;
 `;
 const InputInfo = styled.div`
   margin-bottom: 10px;
+  letter-spacing: 3px;
 `;
 const Input = styled.input`
   width: 100%;
@@ -26,16 +34,20 @@ const Button = styled.button`
   border: 0;
   background: none;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 5px;
-  margin: 10px;
   border-radius: 5px;
   outline: none;
+  width:33%;
+  margin-top:20px;
+  box-shadow: 2px 2px 1px rgb(0 0 0 / 25%);
+  background: #e9e9e9;
+  color: rgba(0,0,0,0.7);
   :active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 `;
+
+
 
 export default function RegisterPage() {
   const [nickname, setNickname] = useState("");
@@ -57,6 +69,7 @@ export default function RegisterPage() {
 
   return (
     <RegisterPageWrapper>
+      <div className="register__title">Register</div>
       <form onSubmit={handleSubmit}>
         <InputInfo>
           Nickname:
@@ -79,7 +92,7 @@ export default function RegisterPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </InputInfo>
-        <Button>送出</Button>
+        <Button className="btn__confirm">CONFIRM</Button>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </form>
     </RegisterPageWrapper>

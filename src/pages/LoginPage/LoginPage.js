@@ -4,14 +4,25 @@ import { login, getMe } from "../../WebAPI";
 import styled from "styled-components";
 import { setAuthToken } from "../../utils";
 import { AuthContext } from "../../contexts";
+import "./Login.scss"
 
 const ErrorMessage = styled.div`
   color: red;
+  margin-top:50px;
+  text-transform:capitalize;
 `;
+
 const LoginPageWrapper = styled.div`
-  text-align: center;
-  margin: 100px;
-  font-weight: normal;
+  text-align: left;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  max-width:50vw;
+  margin-right:auto;
+  margin-left:auto;
+`;
+const InputInfo = styled.div`
+  margin-bottom: 10px;
+  letter-spacing: 3px;
 `;
 const Input = styled.input`
   width: 100%;
@@ -26,14 +37,16 @@ const Button = styled.button`
   border: 0;
   background: none;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 5px;
-  margin: 10px;
   border-radius: 5px;
   outline: none;
+  width:33%;
+  margin-top:20px;
+  box-shadow: 2px 2px 1px rgb(0 0 0 / 25%);
+  background: #e9e9e9;
+  color: rgba(0,0,0,0.7);
   :active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 `;
 
@@ -65,23 +78,24 @@ export default function LoginPage() {
 
   return (
     <LoginPageWrapper>
+      <div className="login__title">Login</div>
       <form onSubmit={handleSubmit}>
-        <div>
+        <InputInfo>
           Username:
           <Input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </div>
-        <div>
+        </InputInfo>
+        <InputInfo>
           Password:
           <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <Button>登入</Button>
+        </InputInfo>
+        <Button className="btn__confirm">CONFIRM</Button>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </form>
     </LoginPageWrapper>
