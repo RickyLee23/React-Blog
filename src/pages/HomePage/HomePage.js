@@ -3,26 +3,14 @@ import PropTypes from "prop-types";
 import { getPosts } from "../../WebAPI";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import "./HomePage.scss"
+import "./HomePage.scss";
+import Loader from '../../components/Loader/Loader'
 
 const Root = styled.div`
   text-align: center;
   text-decoration: none;
 `;
-const Loading = styled.div`
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+
 const PostContainer = styled.div`
   padding: 16px;
   display: flex;
@@ -160,9 +148,10 @@ export default function HomePage() {
       });
   }
 
+
   return (
     <Root>
-      {isLoading && <Loading>Loading....</Loading>}
+      {isLoading && <Loader/>}
       <SelfIntroduceBlock/>
       {posts.map((post) => (
         <Post key={post.id} post={post} />
