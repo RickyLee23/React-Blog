@@ -50,9 +50,9 @@ function App() {
                 <Route path="/post/:id">
                   <PostPage />
                 </Route>
-                <Route exact path="/aboutMe">
+                {/* <Route exact path="/aboutMe">
                   <AboutMePage />
-                </Route>
+                </Route> */}
                 <Route exact path="/newPost">
                   <NewPostPage />
                 </Route>

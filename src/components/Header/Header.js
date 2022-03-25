@@ -51,8 +51,11 @@ const NavSection1 = styled.div`
   `;
 
 const NavSection2 = styled.div`
+  @media (max-width: 700px) {
+    justify-content: space-between;
+  }
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   width:100%;
 `;
 
@@ -78,9 +81,9 @@ export default function Header() {
       <Block to="/" $active={location.pathname === "/"}>
         Home
       </Block>
-      <Block to="/aboutMe" $active={location.pathname === "/aboutMe"}>
+      {/* <Block to="/aboutMe" $active={location.pathname === "/aboutMe"}>
         About
-      </Block>
+      </Block> */}
       {user && (
       <Block to="/newPost" $active={location.pathname === "/newPost"}>
         post
