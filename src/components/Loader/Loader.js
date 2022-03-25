@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import loaderAnimation from "./loader.json";
 import styled from "styled-components";
-
+import { Fragment } from 'react'
 
 const Loading = styled.div`
   z-index: 999;
@@ -21,8 +21,10 @@ const Loading = styled.div`
 export default function Loader() {
 
     return (
-        <Loading>
-            <Lottie animationData={loaderAnimation}></Lottie>
-        </Loading>
+        <Fragment>
+            {<Loading>
+                <Lottie animationData={loaderAnimation}></Lottie>
+            </Loading>}
+        </Fragment>
     )
 }
