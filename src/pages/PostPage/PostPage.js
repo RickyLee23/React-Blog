@@ -50,6 +50,6 @@ export default function PostPage() {
 
   return (
     <PostWrapper>
-      <Post post={post} />;
+      <Post post={post} />
     </PostWrapper>)
 }

@@ -3,43 +3,40 @@ import { newPost } from "../../WebAPI";
 import { AuthContext } from "../../contexts";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import ButtonDefault from "../../share/button/ButtonDefault";
 
 const ErrorMessage = styled.div`
   color: red;
 `;
 const NewPostPageWrapper = styled.div`
-  margin: 100px auto;
+  margin-top: 20vh;
   font-size: 20px;
   text-align: center;
+  /* border:2px solid red; */
+  margin-left: auto;
+  margin-right: auto;
 `;
 const Info = styled.div`
   margin: 0px auto;
+  letter-spacing: 3px;
+  text-align: left;
+  width:50%;
+  font-size: 16px;
 `;
 const User = styled.div`
   margin-bottom: 40px;
+  text-align: center;
+  width:100%;
 `;
 const Textarea = styled.textarea`
-  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-`;
-const Button = styled.button`
-  border: 0;
-  background: none;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  margin: 10px;
-  border-radius: 5px;
-  outline: none;
-  :active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+  text-align: left;
+  width:50%;
 `;
 
 export default function NewPostPage() {
@@ -79,10 +76,7 @@ export default function NewPostPage() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <div>
-          <Button>送出</Button>
-        </div>
-
+        <ButtonDefault></ButtonDefault>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </form>
     </NewPostPageWrapper>
