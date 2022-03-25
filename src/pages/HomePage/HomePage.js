@@ -33,6 +33,10 @@ const PostDate = styled.div`
   margin-bottom:20px;
 `;
 const PageSign = styled.div`
+  @media (max-width: 460px){
+    display: block;
+    margin: 10px 10px;
+  }
   margin: 20px 20px;
   display: inline-block;
   padding: 10px;
@@ -54,13 +58,16 @@ const Button = styled.span`
 `;
 const PageFunction = styled.div`
   margin-top: 50px;
+  @media (max-width: 460px){
+    margin: 10px 10px;
+  }
 `;
 
-const PostThumbnail = styled.div`
-  width:60%;
-  border:2px solid red;
-  height:80vh;
-`
+// const PostThumbnail = styled.div`
+//   width:60%;
+//   border:2px solid red;
+//   height:80vh;
+// `
 
 function SelfIntroduceBlock() {
   return (

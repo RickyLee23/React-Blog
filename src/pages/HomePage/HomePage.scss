@@ -1,5 +1,18 @@
 
 .simpleIntroduce {
+    &__container {
+        @media (max-width: 1256px){
+            height: 370px;
+        }
+        @media (max-width: 600px){
+            height: 300px;
+        }
+        @media (max-width: 460px){
+            height: 180px;
+        }
+        margin-top: 10vh;
+        background-color:#f8f8f8;
+    }
     &__textContainer {
         @media (max-width: 1256px){
             left: 25%;
@@ -11,17 +24,6 @@
         letter-spacing: 3px;
         top: 16%;
         left: 30%;
-    }
-    &__container {
-        @media (max-width: 1256px){
-            height: 370px;
-        }
-        @media (max-width: 600px){
-            height: 300px;
-        }
-        height:30vw;
-        margin-top: 10vh;
-        background-color:#f8f8f8;
     }
     &__content-major {
         font-weight: 800;
@@ -47,6 +49,9 @@
         z-index: 0;
     }
     &__text {
+        @media (max-width: 460px){
+            display:none;
+        }
         position: relative;
         margin-left: 80px;
         top: 20%;
@@ -67,5 +72,4 @@
     margin-left: auto;
     margin-right: auto;
     margin-top:10px;
-    // width:30%;
 }

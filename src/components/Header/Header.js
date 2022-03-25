@@ -52,7 +52,7 @@ const NavSection1 = styled.div`
 
 const NavSection2 = styled.div`
   @media (max-width: 700px) {
-    justify-content: space-between;
+    justify-content: space-around;
   }
   display: flex;
   justify-content: right;
