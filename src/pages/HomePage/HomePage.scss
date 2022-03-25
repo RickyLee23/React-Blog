@@ -48,7 +48,7 @@
     }
     &__text {
         position: relative;
-        left: 20%;
+        margin-left: 80px;
         top: 20%;
         text-align: left;
         font-size: 30px;
@@ -64,5 +64,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+    // width:30%;
 }

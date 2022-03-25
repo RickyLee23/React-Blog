@@ -17,10 +17,11 @@ const PostContainer = styled.div`
   justify-content: space-between;
   margin: 10px auto;
   border-radius: 10px;
+  margin-bottom: 20px;
 `;
 
 const PostTitle = styled(Link)`
-  font-size: 90px;
+  font-size: 36px;
   text-decoration: none;
   color: black;
   text-decoration: underline;
@@ -81,7 +82,7 @@ function Post({ post }) {
   const editTime = new Date(post.createdAt)
   return (
     <PostContainer>
-      <PostThumbnail/>
+      {/* <PostThumbnail/> */}
       <div className="post__desc">
         <PostDate>{months[editTime.getMonth()]}. {editTime.getDate()}, {editTime.getFullYear()}</PostDate>
         <PostTitle to={`/post/${post.id}`}>{post.title}</PostTitle>
