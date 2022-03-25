@@ -12,6 +12,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { AuthContext } from "../contexts";
 import "../App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoader, toggleOpen, toggleOff } from "../redux/loaderSlice";
+import Loader from "./Loader/Loader";
 
 const Root = styled.div`
 `;
@@ -27,6 +30,7 @@ const Space = styled.div`
 
 function App() {
   const [user, setUser] = React.useState(null);
+  const handleLoader = useSelector(selectLoader)
  
   useEffect(() => {
     getMe().then((response) => {
@@ -41,6 +45,7 @@ function App() {
       <Root>
         <Router>
           <SpaceDistrubution>
+            {handleLoader && <Loader/>}
             <Header />
             <Space>
               <Switch>

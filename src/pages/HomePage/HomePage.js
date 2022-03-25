@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "./HomePage.scss";
 import Loader from '../../components/Loader/Loader'
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoader, toggleOpen, toggleOff } from "../../redux/loaderSlice";
 
 const Root = styled.div`
   text-align: center;
@@ -106,19 +108,20 @@ export default function HomePage() {
   const [posts, setPosts] = useState([]);
   const [totalPage, setTotalPage] = useState();
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
   const itemPerPage = 5;
+  const dispatch = useDispatch()
+  const handleLoader = useSelector(selectLoader)
 
   useEffect(() => {
     getPosts(page, itemPerPage).then((post) =>
       setTotalPage(Math.ceil(post.headers.get("X-Total-Count") / itemPerPage))
     );
 
-    setIsLoading(true);
+    dispatch(toggleOpen())
     getPosts(page, itemPerPage)
       .then((res) => res.json())
       .then((posts) => {
-        setIsLoading(false);
+        dispatch(toggleOff())
         setPosts(posts);
       });
   }, [page]);
@@ -143,15 +146,15 @@ export default function HomePage() {
   };
 
   function pageChanged(newSet, itemPerPage) {
-    if (isLoading) {
+    if (handleLoader) {
       return;
     }
     setPage(newSet);
-    setIsLoading(true);
+    dispatch(toggleOpen())
     getPosts(newSet, itemPerPage)
       .then((res) => res.json())
       .then((posts) => {
-        setIsLoading(false);
+        dispatch(toggleOff())
         setPosts(posts);
       });
   }
@@ -159,7 +162,6 @@ export default function HomePage() {
 
   return (
     <Root>
-      {isLoading && <Loader/>}
       <SelfIntroduceBlock/>
       {posts.map((post) => (
         <Post key={post.id} post={post} />

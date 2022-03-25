@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getPost } from "../../WebAPI";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoader, toggleOpen, toggleOff } from "../../redux/loaderSlice";
+
 
 const PostTitle = styled.div`
   font-size: 30px;
@@ -39,12 +42,15 @@ const Post = ({ post }) => {
 };
 
 export default function PostPage() {
+  const dispatch = useDispatch()
   const [post, setPost] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(toggleOpen())
     getPost(id).then((data) => {
       setPost(data);
+      dispatch(toggleOff())
     });
   }, [id]);
 

@@ -3,18 +3,20 @@ import { createSlice } from '@reduxjs/toolkit';
 export const loaderSlice = createSlice({
     name: 'loader',
     initialState: {
-        isOpen: false
+        isOpen: false,
     },
     reducers: {
-        open: state => {
-            state.isOpen = true
+        toggleOpen: state => {
+            if (!state.isOpen) { state.isOpen = true}
         },
-        close: state => {
-            state.isOpen = false
+        toggleOff: state => {
+            if (state.isOpen) { state.isOpen = false}
         }
     }
 })
 
-export const { open, close } = loaderSlice.actions
+export const { toggleOpen, toggleOff } = loaderSlice.actions
 
 export default loaderSlice.reducer
+
+export const selectLoader = state => state.loader.isOpen

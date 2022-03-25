@@ -4,6 +4,9 @@ import { AuthContext } from "../../contexts";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import ButtonDefault from "../../share/button/ButtonDefault";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoader, toggleOpen, toggleOff } from "../../redux/loaderSlice";
+
 
 const ErrorMessage = styled.div`
   color: red;
@@ -45,14 +48,18 @@ export default function NewPostPage() {
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState();
   const history = useHistory();
+  const dispatch = useDispatch()
+  const handleLoader = useSelector(selectLoader)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMessage(null);
+    dispatch(toggleOpen())
     newPost(title, content).then((data) => {
       if (data.ok === 0) {
         setErrorMessage(data.message);
       }
+      dispatch(toggleOff())
       history.push("/");
     });
   };
