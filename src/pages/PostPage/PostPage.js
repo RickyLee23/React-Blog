@@ -11,13 +11,21 @@ const PostDate = styled.div`
   margin-bottom: 20px;
 `;
 const PostContainer = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   width: 500px;
-  margin: 80px auto;
+  margin: auto auto;
   padding: 20px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   word-break: break-word;
 `;
+
+const PostWrapper = styled.div`
+  margin-top: 20vh ;
+  margin-bottom: 10vh ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Post = ({ post }) => {
   if (!post) return null;
@@ -40,5 +48,8 @@ export default function PostPage() {
     });
   }, [id]);
 
-  return <Post post={post} />;
+  return (
+    <PostWrapper>
+      <Post post={post} />;
+    </PostWrapper>)
 }
