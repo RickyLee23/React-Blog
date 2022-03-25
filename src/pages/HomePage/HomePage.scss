@@ -1,15 +1,13 @@
 
 .simpleIntroduce {
     &__container {
-        @media (max-width: 1256px){
-            height: 370px;
-        }
         @media (max-width: 600px){
             height: 300px;
         }
         @media (max-width: 460px){
             height: 180px;
         }
+        height: 370px;
         margin-top: 10vh;
         background-color:#f8f8f8;
     }
@@ -30,12 +28,18 @@
         color: #444444;
         font-size: 14vw;
         line-height: 1.2;
+        @media (min-width: 1256px) {
+            font-size: 100px;
+        }
     }
     &__content-sub {
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke-width: 1px;
         font-size: 14vw;
         line-height: 1.2;
+        @media (min-width: 1256px) {
+            font-size: 100px;
+        }
     }
     &__content {
         text-transform: uppercase;

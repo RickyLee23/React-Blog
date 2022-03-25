@@ -13,13 +13,11 @@
         left: 30%;
     }
     &__container {
-        @media (max-width: 1256px){
-            height: 370px;
-        }
-        @media (max-width: 600px){
+        @media (min-width: 600px){
             height: 300px;
         }
         height:30vw;
+        height: 370px;
         margin-top: 10vh;
         background-color:#f8f8f8;
     }
