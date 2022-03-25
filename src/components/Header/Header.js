@@ -13,15 +13,19 @@ const HeaderContainer = styled.div`
   align-items: center;
   background-color: #fff;
   z-index:1;
-`;
+  `;
 const Brand = styled.span`
   font-size: 25px;
   margin-left: 20px;
   margin-right: 40px;
   font-weight: 800;
   text-transform: uppercase;
-`;
+  `;
 const Block = styled(Link)`
+  @media (max-width: 600px) {
+    margin: 10px 10px;
+    font-size: 8px;
+  }
   margin: 0px 20px;
   text-decoration: none;
   color: black;
@@ -38,11 +42,19 @@ const Block = styled(Link)`
 `;
 
 const NavSection1 = styled.div`
+  @media (max-width: 700px) {
+      display: none;
+  }
   display: flex;
   align-items: center;
-`;
+  
+  `;
 
-const NavSection2 = styled.div``;
+const NavSection2 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+`;
 
 export default function Header() {
   const history = useHistory();
@@ -71,7 +83,7 @@ export default function Header() {
       </Block>
       {user && (
       <Block to="/newPost" $active={location.pathname === "/newPost"}>
-        Create new post
+        post
       </Block>
       )}
       <Block to="/register" $active={location.pathname === "/register"}>
