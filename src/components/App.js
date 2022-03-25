@@ -27,7 +27,7 @@ const Space = styled.div`
 
 function App() {
   const [user, setUser] = React.useState(null);
-
+ 
   useEffect(() => {
     getMe().then((response) => {
       if (response.ok) {
