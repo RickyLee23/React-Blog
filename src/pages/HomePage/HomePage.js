@@ -4,7 +4,6 @@ import { getPosts } from "../../WebAPI";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "./HomePage.scss";
-import Loader from '../../components/Loader/Loader'
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoader, toggleOpen, toggleOff } from "../../redux/loaderSlice";
 

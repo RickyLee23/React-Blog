@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { getMe } from "../WebAPI";
 import RegisterPage from "../pages/RegisterPage";
-import AboutMePage from "../pages/AboutMePage";
+// import AboutMePage from "../pages/AboutMePage";
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
 import PostPage from "../pages/PostPage";
@@ -12,8 +12,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { AuthContext } from "../contexts";
 import "../App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { selectLoader, toggleOpen, toggleOff } from "../redux/loaderSlice";
+import { useSelector } from "react-redux";
+import { selectLoader } from "../redux/loaderSlice";
 import Loader from "./Loader/Loader";
 
 const Root = styled.div`

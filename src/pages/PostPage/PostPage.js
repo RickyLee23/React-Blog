@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getPost } from "../../WebAPI";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { selectLoader, toggleOpen, toggleOff } from "../../redux/loaderSlice";
+import { useDispatch } from "react-redux";
+import { toggleOpen, toggleOff } from "../../redux/loaderSlice";
 
 
 const PostTitle = styled.div`
