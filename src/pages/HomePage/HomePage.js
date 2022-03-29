@@ -19,6 +19,7 @@ const PostContainer = styled.div`
   margin: 10px auto;
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 50%;
 `;
 
 const PostTitle = styled(Link)`
@@ -27,11 +28,13 @@ const PostTitle = styled(Link)`
   color: black;
   text-decoration: underline;
   :hover { text-decoration-color: #f4bf2c; }
+  text-align: left;
 `;
 
 const PostDate = styled.div`
   color: rgba(0, 0, 0, 0.5);
-  margin-bottom:20px;
+  margin-bottom:50px;
+  text-align: left;
 `;
 const PageSign = styled.div`
   @media (max-width: 460px){
@@ -70,6 +73,16 @@ const PageFunction = styled.div`
 //   height:80vh;
 // `
 
+const PostContent = styled.div`
+  margin-top: 20px;
+  height:100px;
+  width:100%;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  word-break: break-all;
+`
+
 function SelfIntroduceBlock() {
   return (
     <div className="simpleIntroduce__container">
@@ -78,7 +91,7 @@ function SelfIntroduceBlock() {
         <h1 className="simpleIntroduce__content-major">Ri
           <span className="simpleIntroduce__content-sub">ck</span>
           y's</h1>
-        <h3 className="simpleIntroduce__text">I am a frontend developer <br/> Based in Taipei</h3>
+        <h3 className="simpleIntroduce__text">I am a frontend developer Based in Taipei</h3>
       </div>
     </div>
   )
@@ -94,6 +107,7 @@ function Post({ post }) {
       <div className="post__desc">
         <PostDate>{months[editTime.getMonth()]}. {editTime.getDate()}, {editTime.getFullYear()}</PostDate>
         <PostTitle to={`/post/${post.id}`}>{post.title}</PostTitle>
+        <PostContent>{post.body}</PostContent>
       </div>
     </PostContainer>
   );
