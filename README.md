@@ -1,7 +1,8 @@
-# React-Blog-Version1.0
+# React-Blog-Version1.1
 
 [DEMO 連結](https://rickylee23.github.io/React-Blog/)
 
+## 通用帳號:aaa 密碼：Lidemy
 
 基本功能：
 
@@ -12,13 +13,14 @@
 - 具備切換分頁功能
 - 登入後可發表文章
 
-待完成：
+優化中：
 
-- 外觀優化
+- 首頁加入『關於我』欄位
 - 加入發文者資訊、文章 id
 
 使用技術：
 
+- 使用 Redux 管理共用狀態 - loader 實作
 - 使用 React-Router 建立 SPA
 - 使用 useState 管理狀態
 - 使用 createContext、useContext 由上層往下層傳遞 Token
